@@ -1,6 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useLayoutEffect } from "react";
 import { useForm } from "./useForm";
 import { Hello } from "./Hello";
+import { useMeasure } from "./useMeasure";
 
 const App = () => {
   const [values, handleChange] = useForm({
@@ -12,6 +13,8 @@ const App = () => {
   const hello = useRef(() => console.log("hello"));
 
   const [showHello, setShowHello] = useState(true);
+
+  const [rect, inputRef2] = useMeasure([]);
 
   return (
     <div>
@@ -25,6 +28,7 @@ const App = () => {
           onChange={handleChange}
         />
         <input
+          ref={inputRef2}
           name="firstName"
           placeholder="first name"
           value={values.firstName}
