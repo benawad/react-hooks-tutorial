@@ -24,7 +24,7 @@ function computeLongestWord(arr) {
 const App = () => {
   const [count, setCount] = useState(0);
   const { data } = useFetch(
-    "https://raw.githubusercontent.com/ajzbc/kanye.rest/master/quotes.json"
+    "https://raw.githubusercontent.com/ajzbc/kanye.rest/quotes/quotes.json"
   );
 
   const longestWord = useMemo(() => computeLongestWord(data), [data]);
